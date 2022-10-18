@@ -10,10 +10,10 @@ void main(){
 	
 	if(pid==0){
 		
-		/*estamos en el proceso hijo*/
+		/*estamos en el proceso hijo. pid en el proceso hijo es 0*/
 		printf("Nombre: Stefano Blanco \n");
 	}else{
-		/*estamos en el proceso padre*/
+		/*estamos en el proceso padre. pid en el proceso padre es el PID del proceso hijo*/
 		wait(NULL);
 		printf("Soy el padre y mi pid es: %d \n",getpid());
 		printf("Mi hijo es el proceso: %d \n",pid);
