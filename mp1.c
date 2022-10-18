@@ -12,11 +12,11 @@ void main(){
 		
 		/*estamos en el proceso hijo*/
 		printf("Nombre: Stefano Blanco \n");
-		printf("Soy el padre y mi pid es: %d \n",getppid());
-		printf("Mi hijo es el proceso: %d \n",getpid());
 	}else{
 		/*estamos en el proceso padre*/
 		wait(NULL);
+		printf("Soy el padre y mi pid es: %d \n",getpid());
+		printf("Mi hijo es el proceso: %d \n",pid);
 	}
 	exit(0);
 }
