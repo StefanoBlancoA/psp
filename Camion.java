@@ -14,19 +14,15 @@ public class Camion extends Thread {
 		this.n = n;
 		volumenRecogido = 0;
 	}
-	public synchronized void run()
+	public void run()
 	{
 		for(int i=1; i<=5; i++) {
+			double carga = dep.llenarDepositoCamion();
+			volumenRecogido += carga;
+			System.out.println("Camión "+n+" carga: "+carga+" litros.");
 			try {
-				wait();
-				double carga = dep.llenarDepositoCamion();
-				volumenRecogido += carga;
-				System.out.println("Camión "+n+" carga: "+carga+" litros.");
-				notify();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				sleep(500);
+			}catch(Exception e) {}
 		}
 		System.out.println("Camión "+n+" => Volumen total recogido: "+volumenRecogido+" litros. Finalizado.");
 	}
